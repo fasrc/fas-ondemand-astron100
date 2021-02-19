@@ -1,0 +1,23 @@
+#!/bin/env bash
+
+zenity --info --text  '<span foreground="red" font="18"><b><i>VScode</i></b> is starting up.\nPlease allow a minute to load.\nThank you for your patience</span>' --width=500 --height=200 &
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/opt/miniconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/opt/miniconda3/etc/profile.d/conda.sh" ]; then
+        . "/opt/miniconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/opt/miniconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+##
+export CONDA_ENVS_PATH=${CLASS_PROGRAMS}/conda_envs:~/.conda/envs:/opt/miniconda/envs
+export CONDA_PKGS_PATH=${CLASS_PROGRAMS}/conda_pkgs:~/.conda/pkgs:/opt/miniconda/pkgs
+# run vscode
+code
+
